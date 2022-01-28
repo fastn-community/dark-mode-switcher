@@ -1,6 +1,18 @@
 -- import: fpm
 
+-- ftd.column:
+padding: 20
+spacing: 20
+
 -- ftd.text: Dark Mode Switcher
+
+-- ftd.row:
+width: 500
+
+--- preview:
+
+This is some text to show you dark mode. Try clicking on the 🌙 / 🌞 above.
+
 
 -- ftd.column preview:
 body body:
