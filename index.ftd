@@ -109,3 +109,21 @@ width: fill
 padding-horizontal: 10
 padding-vertical: 5
 background-color if $MOUSE-IN: #f2f2f2
+
+
+-- ftd.row toggle:
+
+--- ftd.image:
+if: not $fpm.dark-mode
+src: https://res.cloudinary.com/dphj6havg/image/upload/v1640938217/dark-mode_mfy9hd.svg
+height: 18
+$event-click$: message-host enable-dark-mode
+align: center
+
+--- ftd.image:
+if:  $fpm.dark-mode
+src: https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg
+height: 18
+$event-click$: message-host enable-light-mode
+align: center
+
