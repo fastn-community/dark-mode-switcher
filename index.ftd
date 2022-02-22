@@ -88,7 +88,7 @@ width: 120
 border-width: 1
 border-radius: 4
 anchor: parent
-position: bottom
+/position: bottom
 shadow-offset-x: 3
 shadow-offset-y: 0
 shadow-size: 1
@@ -99,6 +99,8 @@ border-width: 1
 border-color: $menu-border
 border-radius: 6
 z-index: 4
+right: 0
+top: 30
 
 --- t: 🌙 - Dark
 text-color: $text-color
