@@ -59,9 +59,13 @@ $body
 boolean open: false
 string background: #F5f5f5
 string text-color: #333333
-string menu-hover: #EEEEEE
 string menu-border: #cccccc
 string font-family: Lato
+string menu-bg:  #F5F5F5
+string menu-hover-bg: #EEEEEE
+string menu-link: #333333
+string menu-link-active: #F5F5F5
+
 
 --- ftd.text: 🌙
 if: $fpm.dark-mode
@@ -82,8 +86,13 @@ color: rgba(0, 0, 0, 0)
 string background:
 string menu-border:
 string font-family:
+string menu-bg:  
+string menu-hover-bg: 
+string menu-link: 
+string menu-link-active: 
+string menu-border: 
 if: $open
-background-color: $background
+background-color: $menu-bg
 width: 120
 border-width: 1
 border-radius: 4
@@ -102,33 +111,37 @@ z-index: 4
 right: 0
 top: 30
 
---- t: 🌙 - Dark
-text-color: $text-color
-menu-hover: $menu-hover
+--- t: 🌙 - Dark  
+menu-hover-bg: $menu-hover-bg
+menu-link: $menu-link  
+menu-link-active: $menu-link-active  
 font-family: $font-family
 $event-click$: message-host enable-dark-mode
 $event-click$: $open=false
 
 --- t: 🌞 - Light
-text-color: $text-color
+menu-hover-bg: $menu-hover-bg
+menu-link: $menu-link  
+menu-link-active: $menu-link-active  
 font-family: $font-family
-menu-hover: $menu-hover
 $event-click$: message-host enable-light-mode
 $event-click$: $open=false
 
 --- t: 🌞 - System
 if: not $fpm.system-dark-mode
-text-color: $text-color
+menu-hover-bg: $menu-hover-bg
+menu-link: $menu-link  
+menu-link-active: $menu-link-active  
 font-family: $font-family
-menu-hover: $menu-hover
 $event-click$: message-host enable-system-mode
 $event-click$: $open=false
 
 --- t: 🌙 - System
 if: $fpm.system-dark-mode
-text-color: $text-color
+menu-hover-bg: $menu-hover-bg
+menu-link: $menu-link  
+menu-link-active: $menu-link-active  
 font-family: $font-family
-menu-hover: $menu-hover
 $event-click$: message-host enable-system-mode
 $event-click$: $open=false
 
@@ -137,16 +150,18 @@ $event-click$: $open=false
 
 -- ftd.text t: $text
 caption text:
-string menu-hover:
-string text-color: 
+string menu-hover-bg: 
+string menu-link: 
+string menu-link-active:  
 string font-family: 
 font: $font-family
 size: 14
 width: fill
 padding-horizontal: 10
 padding-vertical: 5
-background-color if $MOUSE-IN: $menu-hover
-color: $text-color
+background-color if $MOUSE-IN: $menu-hover-bg
+color: $menu-link
+color if $MOUSE-IN: $menu-link-active
 border-radius: 4
 
 
