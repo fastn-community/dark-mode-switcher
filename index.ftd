@@ -70,12 +70,12 @@ string menu-link-active: #F5F5F5
 --- ftd.text: 🌙
 if: $fpm.dark-mode
 move-up: 2
-$event-click$: toggle $open
+$on-click$: toggle $open
 
 --- ftd.text: 🌞
 if: not $fpm.dark-mode
 scale: 1.2
-$event-click$: toggle $open
+$on-click$: toggle $open
 
 --- ftd.text: .
 color if not $fpm.follow-system-dark-mode: black
@@ -116,16 +116,16 @@ menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
-$event-click$: message-host enable-dark-mode
-$event-click$: $open=false
+$on-click$: message-host enable-dark-mode
+$on-click$: $open=false
 
 --- t: 🌞 - Light
 menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
-$event-click$: message-host enable-light-mode
-$event-click$: $open=false
+$on-click$: message-host enable-light-mode
+$on-click$: $open=false
 
 --- t: 🌞 - System
 if: not $fpm.system-dark-mode
@@ -133,8 +133,8 @@ menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
-$event-click$: message-host enable-system-mode
-$event-click$: $open=false
+$on-click$: message-host enable-system-mode
+$on-click$: $open=false
 
 --- t: 🌙 - System
 if: $fpm.system-dark-mode
@@ -142,8 +142,8 @@ menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
-$event-click$: message-host enable-system-mode
-$event-click$: $open=false
+$on-click$: message-host enable-system-mode
+$on-click$: $open=false
 
 
 
@@ -171,13 +171,13 @@ border-radius: 4
 if: not $fpm.dark-mode
 src: https://res.cloudinary.com/dphj6havg/image/upload/v1640938217/dark-mode_mfy9hd.svg
 height: 18
-$event-click$: message-host enable-dark-mode
+$on-click$: message-host enable-dark-mode
 align: center
 
 --- ftd.image:
 if:  $fpm.dark-mode
 src: https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg
 height: 18
-$event-click$: message-host enable-light-mode
+$on-click$: message-host enable-light-mode
 align: center
 
