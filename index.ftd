@@ -65,17 +65,16 @@ string menu-bg:  #F5F5F5
 string menu-hover-bg: #EEEEEE
 string menu-link: #333333
 string menu-link-active: #F5F5F5
-
+$on-click$: toggle $open
+$on-click-outside$: $open=false
 
 --- ftd.text: 🌙
 if: $fpm.dark-mode
 move-up: 2
-$on-click$: toggle $open
 
 --- ftd.text: 🌞
 if: not $fpm.dark-mode
 scale: 1.2
-$on-click$: toggle $open
 
 --- ftd.text: .
 color if not $fpm.follow-system-dark-mode: black
@@ -86,11 +85,11 @@ color: rgba(0, 0, 0, 0)
 string background:
 string menu-border:
 string font-family:
-string menu-bg:  
-string menu-hover-bg: 
-string menu-link: 
-string menu-link-active: 
-string menu-border: 
+string menu-bg:
+string menu-hover-bg:
+string menu-link:
+string menu-link-active:
+string menu-border:
 if: $open
 background-color: $menu-bg
 width: 120
