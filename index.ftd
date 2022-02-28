@@ -70,7 +70,6 @@ $on-click-outside$: $open=false
 
 --- ftd.text: 🌙
 if: $fpm.dark-mode
-move-up: 2
 
 --- ftd.text: 🌞
 if: not $fpm.dark-mode
