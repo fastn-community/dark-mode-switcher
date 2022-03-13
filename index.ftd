@@ -71,6 +71,12 @@ string dark-polygon-up: -/fifthtry.github.io/dark-mode-switcher/images/dark/poly
 string light-polygon-up: -/fifthtry.github.io/dark-mode-switcher/images/light/polygon-up.png
 string dark-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/dark/polygon-down.png
 string light-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/light/polygon-down.png
+string dark-mode-default: -/fifthtry.github.io/dark-mode-switcher/images/dark-mode-default.png
+string dark-mode-active: -/fifthtry.github.io/dark-mode-switcher/images/dark-mode-active.png
+string light-mode-default: -/fifthtry.github.io/dark-mode-switcher/images/light-mode-detault.png
+string light-mode-active: -/fifthtry.github.io/dark-mode-switcher/images/light-mode-active.png
+string system-mode-default: -/fifthtry.github.io/dark-mode-switcher/images/system-mode-default.png
+string system-mode-active: -/fifthtry.github.io/dark-mode-switcher/images/system-mode-active.png
 
 
 
@@ -94,14 +100,17 @@ src: $dark-polygon-up
 
 --- container: ftd.main
 
-
-
---- ftd.text: 🌙
-if: $fpm.dark-mode
-
---- ftd.text: 🌞
+--- ftd.image:
 if: not $fpm.dark-mode
-scale: 1.2
+src: $light-mode-active
+
+--- ftd.image: 
+if: $fpm.dark-mode
+src: $dark-mode-active
+
+--- ftd.image:
+if: $fpm.system-dark-mode
+src: $system-mode-active
 
 
 --- ftd.column:
@@ -126,34 +135,28 @@ right: 0
 top: 38
 
 
---- t: 🌙 - Dark  
-/menu-hover-bg: $menu-hover-bg
+--- t-dark: Dark  
+dark-mode-default: $dark-mode-default
+dark-mode-active: $dark-mode-active
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
 $on-click$: message-host enable-dark-mode
 $on-click$: $open=false
 
---- t: 🌞 - Light
-/menu-hover-bg: $menu-hover-bg
+--- t-light: Light
+light-mode-default: $light-mode-default
+light-mode-active: $light-mode-active
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
 $on-click$: message-host enable-light-mode
 $on-click$: $open=false
 
---- t: 🌞 - System
-if: not $fpm.system-dark-mode
-/menu-hover-bg: $menu-hover-bg
-menu-link: $menu-link  
-menu-link-active: $menu-link-active  
-font-family: $font-family
-$on-click$: message-host enable-system-mode
-$on-click$: $open=false
 
---- t: 🌙 - System
-if: $fpm.system-dark-mode
-/menu-hover-bg: $menu-hover-bg
+--- t-system: System
+system-mode-default: $system-mode-default
+system-mode-active: $system-mode-active
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
@@ -163,36 +166,164 @@ $on-click$: $open=false
 
 
 
--- ftd.text t: $text
+
+
+
+
+-- ftd.row t-light: 
 caption text:
 /string menu-hover-bg: 
 string menu-link: 
-string menu-link-active:  
+optional string menu-link-active:  
+optional string light-mode-default: 
+optional string light-mode-active:
 string font-family: 
+boolean mouse-in: false
+$event-mouseenter$: $mouse-in = true
+$event-mouseleave$: $mouse-in = false
+
+--- ftd.row:
+if: not $mouse-in
+width: fill
+
+--- ftd.image:
+src: $light-mode-default
+
+--- ftd.text: $text 
 font: $font-family
 size: 14
 width: fill
 padding-horizontal: 10
 padding-vertical: 5
-/background-color if $MOUSE-IN: $menu-hover-bg
 color: $menu-link
 color if $MOUSE-IN: $menu-link-active
-border-radius: 4
 
-
--- ftd.row toggle:
-
---- ftd.image:
-if: not $fpm.dark-mode
-src: https://res.cloudinary.com/dphj6havg/image/upload/v1640938217/dark-mode_mfy9hd.svg
-height: 18
-$on-click$: message-host enable-dark-mode
-align: center
+--- ftd.row:
+if: $mouse-in
+width: fill
 
 --- ftd.image:
-if:  $fpm.dark-mode
-src: https://res.cloudinary.com/dphj6havg/image/upload/v1641367492/light-mode_o0zne7.svg
-height: 18
-$on-click$: message-host enable-light-mode
-align: center
+src: $light-mode-active
+
+--- ftd.text: $text 
+font: $font-family
+size: 14
+width: fill
+padding-horizontal: 10
+padding-vertical: 5
+color: $menu-link
+color if $MOUSE-IN: $menu-link-active
+
+
+
+
+
+
+
+
+
+
+-- ftd.row t-dark: 
+caption text:
+/string menu-hover-bg: 
+string menu-link: 
+optional string menu-link-active:  
+optional string dark-mode-default:
+optional string dark-mode-active:
+string font-family: 
+boolean mouse-in: false
+$event-mouseenter$: $mouse-in = true
+$event-mouseleave$: $mouse-in = false
+
+--- ftd.row:
+if: not $mouse-in
+width: fill
+
+--- ftd.image:
+src: $dark-mode-default
+
+--- ftd.text: $text 
+font: $font-family
+size: 14
+width: fill
+padding-horizontal: 10
+padding-vertical: 5
+color: $menu-link
+color if $MOUSE-IN: $menu-link-active
+
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $mouse-in
+width: fill
+
+--- ftd.image:
+src: $dark-mode-active
+
+--- ftd.text: $text 
+font: $font-family
+size: 14
+width: fill
+padding-horizontal: 10
+padding-vertical: 5
+color: $menu-link
+color if $MOUSE-IN: $menu-link-active
+
+
+
+
+
+
+
+
+
+
+
+
+-- ftd.column t-system: 
+caption text:
+/string menu-hover-bg: 
+string menu-link: 
+optional string menu-link-active:  
+optional string system-mode-default:
+optional string system-mode-active:
+string font-family: 
+boolean mouse-in: false
+$event-mouseenter$: $mouse-in = true
+$event-mouseleave$: $mouse-in = false
+
+--- ftd.row:
+if: not $mouse-in
+width: fill
+
+--- ftd.image:
+src: $system-mode-default
+
+--- ftd.text: $text 
+font: $font-family
+size: 14
+width: fill
+padding-horizontal: 10
+padding-vertical: 5
+color: $menu-link
+color if $MOUSE-IN: $menu-link-active
+
+--- container: ftd.main
+
+--- ftd.row:
+if: $mouse-in
+width: fill
+
+--- ftd.image:
+src: $system-mode-active
+
+--- ftd.text: $text 
+font: $font-family
+size: 14
+width: fill
+padding-horizontal: 10
+padding-vertical: 5
+color: $menu-link
+color if $MOUSE-IN: $menu-link-active
 
