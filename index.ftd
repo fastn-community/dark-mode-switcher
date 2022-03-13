@@ -61,12 +61,17 @@ string background: #F5f5f5
 string text-color: #333333
 string menu-border: #cccccc
 string font-family: Lato
-string menu-bg:  #F5F5F5
-string menu-hover-bg: #EEEEEE
-string menu-link: #333333
-string menu-link-active: #F5F5F5
+string menu-bg:  #FFFFFF
+/string menu-hover-bg: #EEEEEE
+string menu-link: #6C7384
+string menu-link-active: #7CC4FA
 $on-click$: toggle $open
 $on-click-outside$: $open=false
+string dark-polygon-up: -/fifthtry.github.io/dark-mode-switcher/images/dark/polygon-up.png
+string light-polygon-up: -/fifthtry.github.io/dark-mode-switcher/images/light/polygon-up.png
+string dark-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/dark/polygon-down.png
+string light-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/light/polygon-down.png
+
 
 --- ftd.text: 🌙
 if: $fpm.dark-mode
@@ -81,14 +86,6 @@ color: rgba(0, 0, 0, 0)
 
 
 --- ftd.column:
-string background:
-string menu-border:
-string font-family:
-string menu-bg:
-string menu-hover-bg:
-string menu-link:
-string menu-link-active:
-string menu-border:
 if: $open
 background-color: $menu-bg
 width: 120
@@ -96,11 +93,11 @@ border-width: 1
 border-radius: 4
 anchor: parent
 /position: bottom
-shadow-offset-x: 3
-shadow-offset-y: 0
-shadow-size: 1
-shadow-blur: 10
-shadow-color: rgba (0, 0, 0, 0.05)
+shadow-offset-x: 4
+shadow-offset-y: 4
+shadow-size: 0
+shadow-blur: 4
+shadow-color: rgba (0, 0, 0, 0.25)
 padding: 5
 border-width: 1
 border-color: $menu-border
@@ -109,8 +106,22 @@ z-index: 4
 right: 0
 top: 30
 
+
+--- ftd.column:
+if: $open
+
+--- ftd.image:
+if: not $fpm.dark-mode
+src: $light-polygon-up
+
+--- ftd.image:
+if: $fpm.dark-mode
+src: $dark-polygon-up
+
+
+
 --- t: 🌙 - Dark  
-menu-hover-bg: $menu-hover-bg
+/menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
@@ -118,7 +129,7 @@ $on-click$: message-host enable-dark-mode
 $on-click$: $open=false
 
 --- t: 🌞 - Light
-menu-hover-bg: $menu-hover-bg
+/menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
@@ -127,7 +138,7 @@ $on-click$: $open=false
 
 --- t: 🌞 - System
 if: not $fpm.system-dark-mode
-menu-hover-bg: $menu-hover-bg
+/menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
@@ -136,7 +147,7 @@ $on-click$: $open=false
 
 --- t: 🌙 - System
 if: $fpm.system-dark-mode
-menu-hover-bg: $menu-hover-bg
+/menu-hover-bg: $menu-hover-bg
 menu-link: $menu-link  
 menu-link-active: $menu-link-active  
 font-family: $font-family
@@ -148,7 +159,7 @@ $on-click$: $open=false
 
 -- ftd.text t: $text
 caption text:
-string menu-hover-bg: 
+/string menu-hover-bg: 
 string menu-link: 
 string menu-link-active:  
 string font-family: 
@@ -157,7 +168,7 @@ size: 14
 width: fill
 padding-horizontal: 10
 padding-vertical: 5
-background-color if $MOUSE-IN: $menu-hover-bg
+/background-color if $MOUSE-IN: $menu-hover-bg
 color: $menu-link
 color if $MOUSE-IN: $menu-link-active
 border-radius: 4
