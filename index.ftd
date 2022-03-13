@@ -55,7 +55,7 @@ $body
 
 
 
--- ftd.row switcher:
+-- ftd.column switcher:
 boolean open: false
 string background: #F5f5f5
 string text-color: #333333
@@ -73,16 +73,35 @@ string dark-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/dark/po
 string light-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/light/polygon-down.png
 
 
+
+--- ftd.column:
+if: not $fpm.mobile
+margin-top: 0
+
+--- ftd.column:
+if: $open
+anchor: parent
+right: -15
+top: 31
+
+--- ftd.image:
+if: not $fpm.dark-mode
+src: $light-polygon-up
+
+--- ftd.image:
+if: $fpm.dark-mode
+src: $dark-polygon-up
+
+--- container: ftd.main
+
+
+
 --- ftd.text: 🌙
 if: $fpm.dark-mode
 
 --- ftd.text: 🌞
 if: not $fpm.dark-mode
 scale: 1.2
-
---- ftd.text: .
-color if not $fpm.follow-system-dark-mode: black
-color: rgba(0, 0, 0, 0)
 
 
 --- ftd.column:
@@ -104,20 +123,7 @@ border-color: $menu-border
 border-radius: 6
 z-index: 4
 right: 0
-top: 30
-
-
---- ftd.column:
-if: $open
-
---- ftd.image:
-if: not $fpm.dark-mode
-src: $light-polygon-up
-
---- ftd.image:
-if: $fpm.dark-mode
-src: $dark-polygon-up
-
+top: 38
 
 
 --- t: 🌙 - Dark  
