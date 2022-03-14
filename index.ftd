@@ -6,6 +6,7 @@
 width: fill
 padding-horizontal: 50
 padding-horizontal if $fpm.mobile: 20
+padding-bottom: 200
 
 -- pd.package: Dark Mode Switcher(DMS)
 name: fifthtry.github.io/dark-mode-switcher
@@ -116,6 +117,10 @@ src: $dark-polygon-up
 
 --- container: ftd.main
 
+--- ftd.column:
+if: not $fpm.follow-system-dark-mode
+
+
 --- ftd.image:
 if: not $fpm.dark-mode
 src: $light-mode-active
@@ -124,9 +129,13 @@ src: $light-mode-active
 if: $fpm.dark-mode
 src: $dark-mode-active
 
+
+--- container: ftd.main
+
 --- ftd.image:
-if: $fpm.system-dark-mode
+if: $fpm.follow-system-dark-mode
 src: $system-mode-active
+
 
 
 --- ftd.column:
@@ -151,9 +160,11 @@ right: 0
 top: 38
 if: position-left
 left: 0
+id: rollover
 
 
 --- t-dark: Dark mode
+if: not $fpm.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
 dark-mode-active: $dark-mode-active
 menu-link: $menu-link  
@@ -161,8 +172,24 @@ menu-link-active: $menu-link-active
 font-family: $font-family
 $on-click$: message-host enable-dark-mode
 $on-click$: $open=false
+is-active: $fpm.dark-mode
+
+
+--- t-dark: Dark mode
+if: $fpm.follow-system-dark-mode
+dark-mode-default: $dark-mode-default
+dark-mode-active: $dark-mode-active
+menu-link: $menu-link  
+menu-link-active: $menu-link-active  
+font-family: $font-family
+$on-click$: message-host enable-dark-mode
+$on-click$: $open=false
+is-active: false
+
+
 
 --- t-light: Light mode
+if: $fpm.follow-system-dark-mode
 light-mode-default: $light-mode-default
 light-mode-active: $light-mode-active
 menu-link: $menu-link  
@@ -170,7 +197,38 @@ menu-link-active: $menu-link-active
 font-family: $font-family
 $on-click$: message-host enable-light-mode
 $on-click$: $open=false
+is-active: false
 
+
+--- ftd.column:
+if: not $fpm.follow-system-dark-mode
+
+
+--- t-light: Light mode
+if: not $fpm.dark-mode
+light-mode-default: $light-mode-default
+light-mode-active: $light-mode-active
+menu-link: $menu-link  
+menu-link-active: $menu-link-active  
+font-family: $font-family
+$on-click$: message-host enable-light-mode
+$on-click$: $open=false
+is-active: true
+
+
+--- t-light: Light mode
+if: $fpm.dark-mode
+light-mode-default: $light-mode-default
+light-mode-active: $light-mode-active
+menu-link: $menu-link  
+menu-link-active: $menu-link-active  
+font-family: $font-family
+$on-click$: message-host enable-light-mode
+$on-click$: $open=false
+is-active: false
+
+
+--- container: rollover
 
 --- t-system: Sync with System
 system-mode-default: $system-mode-default
@@ -180,6 +238,9 @@ menu-link-active: $menu-link-active
 font-family: $font-family
 $on-click$: message-host enable-system-mode
 $on-click$: $open=false
+is-active: $fpm.follow-system-dark-mode
+
+
 
 
 
@@ -197,13 +258,14 @@ optional string light-mode-default:
 optional string light-mode-active:
 string font-family: 
 boolean mouse-in: false
-$event-mouseenter$: $mouse-in = true
-$event-mouseleave$: $mouse-in = false
+$on-mouse-enter$: $mouse-in = true
+$on-mouse-leave$: $mouse-in = false
 padding-horizontal: 10
 padding-vertical: 8
+boolean is-active: false
 
 --- ftd.row:
-if: not $mouse-in
+if: not $is-active
 width: fill
 
 --- ftd.image:
@@ -219,8 +281,10 @@ color: $menu-link
 color if $MOUSE-IN: $menu-link-active
 padding-left: 10
 
+--- container: ftd.main
+
 --- ftd.row:
-if: $mouse-in
+if: $is-active
 width: fill
 
 --- ftd.image:
@@ -231,8 +295,7 @@ font: $font-family
 size: 14
 line-height: 18
 width: fill
-color: $menu-link
-color if $MOUSE-IN: $menu-link-active
+color: $menu-link-active
 padding-left: 10
 
 
@@ -257,9 +320,10 @@ $event-mouseenter$: $mouse-in = true
 $event-mouseleave$: $mouse-in = false
 padding-horizontal: 10
 padding-vertical: 8
+boolean is-active: false
 
 --- ftd.row:
-if: not $mouse-in
+if: not $is-active
 width: fill
 
 --- ftd.image:
@@ -278,7 +342,7 @@ padding-left: 10
 --- container: ftd.main
 
 --- ftd.row:
-if: $mouse-in
+if: $is-active
 width: fill
 
 --- ftd.image:
@@ -289,8 +353,7 @@ font: $font-family
 size: 14
 line-height: 18
 width: fill
-color: $menu-link
-color if $MOUSE-IN: $menu-link-active
+color: $menu-link-active
 padding-left: 10
 
 
@@ -317,9 +380,10 @@ $event-mouseenter$: $mouse-in = true
 $event-mouseleave$: $mouse-in = false
 padding-horizontal: 10
 padding-vertical: 8
+boolean is-active: false
 
 --- ftd.row:
-if: not $mouse-in
+if: not $is-active
 width: fill
 
 --- ftd.image:
@@ -337,7 +401,7 @@ padding-left: 10
 --- container: ftd.main
 
 --- ftd.row:
-if: $mouse-in
+if: $is-active
 width: fill
 
 --- ftd.image:
@@ -348,7 +412,6 @@ font: $font-family
 size: 14
 line-height: 18
 width: fill
-color: $menu-link
-color if $MOUSE-IN: $menu-link-active
+color: $menu-link-active
 padding-left: 10
 
