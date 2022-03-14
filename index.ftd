@@ -63,55 +63,6 @@ dark-menu-bg: #212121
 
 
 
--- ftd.column:
-padding: 20
-spacing: 20
-
--- ftd.text: Dark Mode Switcher
-
--- ftd.row:
-width: 500
-
---- preview:
-
-This is some text to show you dark mode. Try clicking on the 🌙 / 🌞 above.
-
-
--- ftd.column preview:
-body body:
-width: fill
-margin-bottom: 15
-padding: 10
-border-width: 1
-border-radius: 5
-background-color if $fpm.dark-mode: #8B8000
-background-color: yellow
-
---- ftd.row:
-spacing: 5
-align: right
-
---- ftd.text: Dark Mode:
-color if $fpm.dark-mode: white
-color: black
-move-down: 5
-
---- switcher:
-
---- container: ftd.main
-
---- ftd.row:
-body body:
-border-bottom-radius: 5
-width: fill
-
---- ftd.text:
-color if $fpm.dark-mode: white
-color: black
-
-$body
-
-
 
 
 
