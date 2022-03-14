@@ -32,7 +32,7 @@ menu-link-active: #7CC4FA
 
 
 -- pd.output: Basic usage example of DMS
-reference: -/fifthtry.github.io/dark-mode-switcher/dms-dark.png
+reference: -/fifthtry.github.io/dark-mode-switcher/images/dms-dark.png
 reference-width: 220
 
 \--- switcher:
