@@ -1,5 +1,6 @@
 -- import: fpm
 -- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/roboto/assets as roboto-assets
 
 
 -- ftd.column:
@@ -76,7 +77,7 @@ string background: #F5f5f5
 string text-color: #333333
 string dark-text-color: #D9D9D9
 string menu-border: #cccccc
-string font-family: Lato
+string font-family: $roboto-assets.fonts.Roboto
 string menu-bg:  #FFFFFF
 string dark-menu-bg: #212121
 /string menu-hover-bg: #EEEEEE
