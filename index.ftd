@@ -1,6 +1,6 @@
 -- import: fpm
 -- import: fifthtry.github.io/package-doc/doc as pd
--- import: fifthtry.github.io/roboto/assets as roboto-assets
+-- import: fifthtry.github.io/dark-mode-switcher/assets
 
 
 -- ftd.column:
@@ -34,7 +34,7 @@ menu-link-active: #7CC4FA
 
 
 -- pd.output: Basic usage example of DMS
-reference: -/fifthtry.github.io/dark-mode-switcher/images/dms-dark.png
+reference: $assets.files.static.dms-dark.png
 reference-width: 220
 
 \--- switcher:
@@ -46,14 +46,8 @@ menu-link: #6C7384
 menu-link-active: #7CC4FA
 
 --- switcher:
-background: #F5f5f5
-text-color: #333333
-menu-border: #cccccc
-menu-bg:  #FFFFFF
-menu-link: #6C7384
-menu-link-active: #7CC4FA
+colors: $fpm.design.color.brand
 position-left: true
-dark-menu-bg: #212121
 
 
 
@@ -73,28 +67,23 @@ dark-menu-bg: #212121
 
 -- ftd.column switcher:
 boolean open: false
-string background: #F5f5f5
-string text-color: #333333
-string dark-text-color: #D9D9D9
-string menu-border: #cccccc
-string font-family: $roboto-assets.fonts.Roboto
-string menu-bg:  #FFFFFF
-string dark-menu-bg: #212121
-/string menu-hover-bg: #EEEEEE
-string menu-link: #6C7384
-string menu-link-active: #7CC4FA
+ftd.colors colors: $fpm.design.color.brand
+ftd.color background: $fpm.design.color.brand.region
+ftd.color text-color: $fpm.design.color.brand.on-region
+ftd.color menu-border: $fpm.design.color.brand.secondary-action
+ftd.color menu-bg:  $fpm.design.color.brand.region
+ftd.color menu-link: $fpm.design.color.brand.on-region
+ftd.color menu-link-active: $fpm.design.color.brand.on-region
 $on-click$: toggle $open
 $on-click-outside$: $open=false
-string dark-polygon-up: -/fifthtry.github.io/dark-mode-switcher/images/dark/polygon-up.png
-string light-polygon-up: -/fifthtry.github.io/dark-mode-switcher/images/light/polygon-up.png
-string dark-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/dark/polygon-down.png
-string light-polygon-down: -/fifthtry.github.io/dark-mode-switcher/images/light/polygon-down.png
-string dark-mode-default: -/fifthtry.github.io/dark-mode-switcher/images/dark-mode-default.png
-string dark-mode-active: -/fifthtry.github.io/dark-mode-switcher/images/dark-mode-active.png
-string light-mode-default: -/fifthtry.github.io/dark-mode-switcher/images/light-mode-detault.png
-string light-mode-active: -/fifthtry.github.io/dark-mode-switcher/images/light-mode-active.png
-string system-mode-default: -/fifthtry.github.io/dark-mode-switcher/images/system-mode-default.png
-string system-mode-active: -/fifthtry.github.io/dark-mode-switcher/images/system-mode-active.png
+ftd.image-src polygon-up: $assets.files.static.icon-polygon-up.png
+ftd.image-src polygon-down: $assets.files.static.icon-polygon-down.png
+ftd.image-src dark-mode-default: $assets.files.static.dark-mode-default.png
+/ftd.image-src dark-mode-active: $assets.files.static.dark-mode-active.png
+ftd.image-src light-mode-default: $assets.files.static.light-mode-detault.png
+ftd.image-src light-mode-active: $assets.files.static.light-mode-active.png
+ftd.image-src system-mode-default: $assets.files.static.system-mode-default.png
+ftd.image-src system-mode-active: $assets.files.static.system-mode-active.png
 boolean position-left: false
 
 
@@ -109,12 +98,7 @@ right: -15
 top: 31
 
 --- ftd.image:
-if: not $fpm.dark-mode
-src: $light-polygon-up
-
---- ftd.image:
-if: $fpm.dark-mode
-src: $dark-polygon-up
+src: $polygon-up
 
 --- container: ftd.main
 
@@ -123,12 +107,7 @@ if: not $fpm.follow-system-dark-mode
 
 
 --- ftd.image:
-if: not $fpm.dark-mode
 src: $light-mode-active
-
---- ftd.image: 
-if: $fpm.dark-mode
-src: $dark-mode-active
 
 
 --- container: ftd.main
@@ -138,23 +117,20 @@ if: $fpm.follow-system-dark-mode
 src: $system-mode-active
 
 
-
 --- ftd.column:
 if: $open
-background-color: $menu-bg
-background-color if $fpm.dark-mode: $dark-menu-bg
+background-color: $colors.region
 width: 180
 border-radius: 4
 anchor: parent
-/position: bottom
 shadow-offset-x: 4
 shadow-offset-y: 4
 shadow-size: 0
 shadow-blur: 4
-shadow-color: rgba (0, 0, 0, 0.25)
+/shadow-color: rgba (0, 0, 0, 0.25)
 padding: 5
 border-width: 0
-border-color: $menu-border
+border-color: $colors.secondary-action
 border-radius: 6
 z-index: 4
 right: 0
@@ -167,10 +143,9 @@ id: rollover
 --- t-dark: Dark mode
 if: not $fpm.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
-dark-mode-active: $dark-mode-active
-menu-link: $menu-link  
-menu-link-active: $menu-link-active  
-font-family: $font-family
+/dark-mode-active: $dark-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
 $on-click$: message-host enable-dark-mode
 $on-click$: $open=false
 is-active: $fpm.dark-mode
@@ -179,10 +154,9 @@ is-active: $fpm.dark-mode
 --- t-dark: Dark mode
 if: $fpm.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
-dark-mode-active: $dark-mode-active
-menu-link: $menu-link  
-menu-link-active: $menu-link-active  
-font-family: $font-family
+/dark-mode-active: $dark-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
 $on-click$: message-host enable-dark-mode
 $on-click$: $open=false
 is-active: false
@@ -193,9 +167,8 @@ is-active: false
 if: $fpm.follow-system-dark-mode
 light-mode-default: $light-mode-default
 light-mode-active: $light-mode-active
-menu-link: $menu-link  
-menu-link-active: $menu-link-active  
-font-family: $font-family
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
 $on-click$: message-host enable-light-mode
 $on-click$: $open=false
 is-active: false
@@ -209,9 +182,8 @@ if: not $fpm.follow-system-dark-mode
 if: not $fpm.dark-mode
 light-mode-default: $light-mode-default
 light-mode-active: $light-mode-active
-menu-link: $menu-link  
-menu-link-active: $menu-link-active  
-font-family: $font-family
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
 $on-click$: message-host enable-light-mode
 $on-click$: $open=false
 is-active: true
@@ -221,9 +193,8 @@ is-active: true
 if: $fpm.dark-mode
 light-mode-default: $light-mode-default
 light-mode-active: $light-mode-active
-menu-link: $menu-link  
-menu-link-active: $menu-link-active  
-font-family: $font-family
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
 $on-click$: message-host enable-light-mode
 $on-click$: $open=false
 is-active: false
@@ -234,9 +205,8 @@ is-active: false
 --- t-system: Sync with System
 system-mode-default: $system-mode-default
 system-mode-active: $system-mode-active
-menu-link: $menu-link  
-menu-link-active: $menu-link-active  
-font-family: $font-family
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
 $on-click$: message-host enable-system-mode
 $on-click$: $open=false
 is-active: $fpm.follow-system-dark-mode
@@ -252,12 +222,10 @@ is-active: $fpm.follow-system-dark-mode
 
 -- ftd.row t-light: 
 caption text:
-/string menu-hover-bg: 
-string menu-link: 
-optional string menu-link-active:  
-optional string light-mode-default: 
-optional string light-mode-active:
-string font-family: 
+ftd.color menu-link: 
+ftd.color menu-link-active:  
+ftd.image-src light-mode-default:
+ftd.image-src light-mode-active:
 boolean mouse-in: false
 $on-mouse-enter$: $mouse-in = true
 $on-mouse-leave$: $mouse-in = false
@@ -274,12 +242,10 @@ src: $light-mode-default
 
 
 --- ftd.text: $text 
-font: $font-family
-size: 14
-line-height: 18
+role: $fpm.design.type.body-medium
 width: fill
 color: $menu-link
-color if $MOUSE-IN: $menu-link-active
+/color if $MOUSE-IN: $menu-link-active
 padding-left: 10
 
 --- container: ftd.main
@@ -292,9 +258,7 @@ width: fill
 src: $light-mode-active
 
 --- ftd.text: $text 
-font: $font-family
-size: 14
-line-height: 18
+role: $fpm.design.type.body-medium
 width: fill
 color: $menu-link-active
 padding-left: 10
@@ -310,12 +274,10 @@ padding-left: 10
 
 -- ftd.row t-dark: 
 caption text:
-/string menu-hover-bg: 
-string menu-link: 
-optional string menu-link-active:  
-optional string dark-mode-default:
-optional string dark-mode-active:
-string font-family: 
+ftd.color menu-link: $fpm.design.color.brand.on-region
+ftd.color menu-link-active: $fpm.design.color.brand.on-region
+ftd.image-src dark-mode-default: $assets.files.static.dark-mode-default.png
+/ftd.image-src dark-mode-active: $assets.files.static.dark-mode-active.png
 boolean mouse-in: false
 $event-mouseenter$: $mouse-in = true
 $event-mouseleave$: $mouse-in = false
@@ -331,12 +293,10 @@ width: fill
 src: $dark-mode-default
 
 --- ftd.text: $text 
-font: $font-family
-size: 14
-line-height: 18
+role: $fpm.design.type.body-medium
 width: fill
 color: $menu-link
-color if $MOUSE-IN: $menu-link-active
+/color if $MOUSE-IN: $menu-link-active
 padding-left: 10
 
 
@@ -347,18 +307,16 @@ if: $is-active
 width: fill
 
 --- ftd.image:
-src: $dark-mode-active
+src: $dark-mode-default
 
---- ftd.text: $text 
-font: $font-family
-size: 14
-line-height: 18
+--- ftd.text: $text
+role: $fpm.design.type.body-medium 
 width: fill
 color: $menu-link-active
 padding-left: 10
 
 
-
+9503932018
 
 
 
@@ -370,12 +328,10 @@ padding-left: 10
 
 -- ftd.column t-system: 
 caption text:
-/string menu-hover-bg: 
-string menu-link: 
-optional string menu-link-active:  
-optional string system-mode-default:
-optional string system-mode-active:
-string font-family: 
+ftd.color menu-link: 
+ftd.color menu-link-active:  
+ftd.image-src system-mode-default:
+ftd.image-src system-mode-active:
 boolean mouse-in: false
 $event-mouseenter$: $mouse-in = true
 $event-mouseleave$: $mouse-in = false
@@ -391,12 +347,10 @@ width: fill
 src: $system-mode-default
 
 --- ftd.text: $text 
-font: $font-family
-size: 14
-line-height: 18
+role: $fpm.design.type.body-medium 
 width: fill
 color: $menu-link
-color if $MOUSE-IN: $menu-link-active
+/color if $MOUSE-IN: $menu-link-active
 padding-left: 10
 
 --- container: ftd.main
@@ -409,10 +363,7 @@ width: fill
 src: $system-mode-active
 
 --- ftd.text: $text 
-font: $font-family
-size: 14
-line-height: 18
+role: $fpm.design.type.body-medium 
 width: fill
 color: $menu-link-active
 padding-left: 10
-
