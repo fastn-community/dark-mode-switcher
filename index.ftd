@@ -6,7 +6,7 @@
 -- ftd.column:
 width: fill
 padding-horizontal: 50
-padding-horizontal if $fpm.mobile: 20
+padding-horizontal if $is-mobile: 20
 padding-bottom: 200
 
 -- pd.package: Dark Mode Switcher(DMS)
@@ -24,12 +24,8 @@ This is the main dark, light and system mode switcher.
 -- pd.hidden-code: How to use
 
 \--- switcher:
-background: #F5f5f5
-text-color: #333333
-menu-border: #cccccc
-menu-bg:  #FFFFFF
-menu-link: #6C7384
-menu-link-active: #7CC4FA
+colors: $fpm.design.color.brand
+position-left: true
 
 
 
@@ -38,12 +34,8 @@ reference: $assets.files.static.dms-dark.png
 reference-width: 220
 
 \--- switcher:
-background: #F5f5f5
-text-color: #333333
-menu-border: #cccccc
-menu-bg:  #FFFFFF
-menu-link: #6C7384
-menu-link-active: #7CC4FA
+colors: $fpm.design.color.brand
+position-left: true
 
 --- switcher:
 colors: $fpm.design.color.brand
@@ -88,7 +80,7 @@ boolean position-left: false
 
 
 --- ftd.column:
-if: not $fpm.mobile
+if: not $is-mobile
 margin-top: 0
 
 --- ftd.column:
@@ -103,7 +95,7 @@ src: $polygon-up
 --- container: ftd.main
 
 --- ftd.column:
-if: not $fpm.follow-system-dark-mode
+if: not $ftd.follow-system-dark-mode
 
 
 --- ftd.image:
@@ -113,7 +105,7 @@ src: $light-mode-active
 --- container: ftd.main
 
 --- ftd.image:
-if: $fpm.follow-system-dark-mode
+if: $ftd.follow-system-dark-mode
 src: $system-mode-active
 
 
@@ -141,18 +133,18 @@ id: rollover
 
 
 --- t-dark: Dark mode
-if: not $fpm.follow-system-dark-mode
+if: not $ftd.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
 /dark-mode-active: $dark-mode-active
 menu-link: $colors.on-region 
 menu-link-active: $colors.on-region
 $on-click$: message-host enable-dark-mode
 $on-click$: $open=false
-is-active: $fpm.dark-mode
+is-active: $ftd.dark-mode
 
 
 --- t-dark: Dark mode
-if: $fpm.follow-system-dark-mode
+if: $ftd.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
 /dark-mode-active: $dark-mode-active
 menu-link: $colors.on-region 
@@ -164,7 +156,7 @@ is-active: false
 
 
 --- t-light: Light mode
-if: $fpm.follow-system-dark-mode
+if: $ftd.follow-system-dark-mode
 light-mode-default: $light-mode-default
 light-mode-active: $light-mode-active
 menu-link: $colors.on-region 
@@ -175,11 +167,11 @@ is-active: false
 
 
 --- ftd.column:
-if: not $fpm.follow-system-dark-mode
+if: not $ftd.follow-system-dark-mode
 
 
 --- t-light: Light mode
-if: not $fpm.dark-mode
+if: not $ftd.dark-mode
 light-mode-default: $light-mode-default
 light-mode-active: $light-mode-active
 menu-link: $colors.on-region 
@@ -190,7 +182,7 @@ is-active: true
 
 
 --- t-light: Light mode
-if: $fpm.dark-mode
+if: $ftd.dark-mode
 light-mode-default: $light-mode-default
 light-mode-active: $light-mode-active
 menu-link: $colors.on-region 
@@ -209,7 +201,7 @@ menu-link: $colors.on-region
 menu-link-active: $colors.on-region
 $on-click$: message-host enable-system-mode
 $on-click$: $open=false
-is-active: $fpm.follow-system-dark-mode
+is-active: $ftd.follow-system-dark-mode
 
 
 
