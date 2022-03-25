@@ -35,7 +35,7 @@ position-left: true
 
 
 
--- pd.output: Basic usage example of DMS
+-- pd.output: Basic usage example of DMS on left position
 reference: $assets.files.static.dms-dark.png
 reference-width: 220
 
@@ -47,6 +47,16 @@ position-left: true
 colors: $fpm.design.color.brand
 position-left: true
 
+
+-- pd.output: Basic usage example of DMS on right position
+reference: $assets.files.static.dms-dark.png
+reference-width: 220
+
+\--- switcher:
+colors: $fpm.design.color.brand
+
+--- switcher:
+colors: $fpm.design.color.brand
 
 
 
@@ -115,12 +125,21 @@ if: $ftd.follow-system-dark-mode
 src: $system-mode-active
 
 
+
+--- ftd.column:
+if: $position-left
+id: menu-container
+
 --- ftd.column:
 if: $open
+id: rollover
+anchor: parent
+z-index: 4
+top: 15
+left: 0
 background-color: $colors.region
 width: 180
 border-radius: 4
-anchor: parent
 shadow-offset-x: 4
 shadow-offset-y: 4
 shadow-size: 0
@@ -130,13 +149,103 @@ padding: 5
 border-width: 0
 border-color: $colors.secondary-action
 border-radius: 6
-z-index: 4
-right: 0
-top: 38
-if: position-left
-left: 0
-id: rollover
 
+
+--- t-dark: Dark mode
+if: not $ftd.follow-system-dark-mode
+dark-mode-default: $dark-mode-default
+/dark-mode-active: $dark-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
+$on-click$: message-host enable-dark-mode
+$on-click$: $open=false
+is-active: $ftd.dark-mode
+
+
+--- t-dark: Dark mode
+if: $ftd.follow-system-dark-mode
+dark-mode-default: $dark-mode-default
+/dark-mode-active: $dark-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
+$on-click$: message-host enable-dark-mode
+$on-click$: $open=false
+is-active: false
+
+
+
+--- t-light: Light mode
+if: $ftd.follow-system-dark-mode
+light-mode-default: $light-mode-default
+light-mode-active: $light-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
+$on-click$: message-host enable-light-mode
+$on-click$: $open=false
+is-active: false
+
+
+--- ftd.column:
+if: not $ftd.follow-system-dark-mode
+
+
+--- t-light: Light mode
+if: not $ftd.dark-mode
+light-mode-default: $light-mode-default
+light-mode-active: $light-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
+$on-click$: message-host enable-light-mode
+$on-click$: $open=false
+is-active: true
+
+
+--- t-light: Light mode
+if: $ftd.dark-mode
+light-mode-default: $light-mode-default
+light-mode-active: $light-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
+$on-click$: message-host enable-light-mode
+$on-click$: $open=false
+is-active: false
+
+
+--- container: rollover
+
+--- t-system: Sync with System
+system-mode-default: $system-mode-default
+system-mode-active: $system-mode-active
+menu-link: $colors.on-region 
+menu-link-active: $colors.on-region
+$on-click$: message-host enable-system-mode
+$on-click$: $open=false
+is-active: $ftd.follow-system-dark-mode
+
+--- container: ftd.main
+
+--- ftd.column:
+if: not $position-left
+
+--- ftd.column:
+if: $open
+id: rollover
+anchor: parent
+z-index: 4
+right: -15
+top: 15
+background-color: $colors.region
+width: 180
+border-radius: 4
+shadow-offset-x: 4
+shadow-offset-y: 4
+shadow-size: 0
+shadow-blur: 4
+/shadow-color: rgba (0, 0, 0, 0.25)
+padding: 5
+border-width: 0
+border-color: $colors.secondary-action
+border-radius: 6
 
 --- t-dark: Dark mode
 if: not $ftd.follow-system-dark-mode
