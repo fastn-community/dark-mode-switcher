@@ -75,7 +75,7 @@ colors: $fpm.color.main
 
 -- ftd.column switcher:
 boolean open: false
-ftd.color-scheme colors: $fpm.color.main.background.base
+ftd.color-scheme colors: $fpm.color.main
 ftd.color background: $fpm.color.main.background.base
 ftd.color text-color: $fpm.color.main.text
 ftd.color menu-border: $fpm.color.main.cta-secondary.base
