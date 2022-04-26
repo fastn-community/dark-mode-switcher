@@ -349,7 +349,7 @@ src: $light-mode-default
 
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 width: fill
 color: $menu-link
 /color if $MOUSE-IN: $menu-link-active
@@ -365,7 +365,7 @@ width: fill
 src: $light-mode-active
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 width: fill
 color: $menu-link-active
 padding-left: 10
@@ -400,7 +400,7 @@ width: fill
 src: $dark-mode-default
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 width: fill
 color: $menu-link
 /color if $MOUSE-IN: $menu-link-active
@@ -417,7 +417,7 @@ width: fill
 src: $dark-mode-default
 
 --- ftd.text: $text
-role: $fpm.type.body-medium 
+role: $fpm.type.copy-relaxed 
 width: fill
 color: $menu-link-active
 padding-left: 10
@@ -454,7 +454,7 @@ width: fill
 src: $system-mode-default
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium 
+role: $fpm.type.copy-relaxed 
 width: fill
 color: $menu-link
 /color if $MOUSE-IN: $menu-link-active
@@ -470,7 +470,7 @@ width: fill
 src: $system-mode-active
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium 
+role: $fpm.type.copy-relaxed 
 width: fill
 color: $menu-link-active
 padding-left: 10
