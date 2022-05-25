@@ -14,6 +14,8 @@ width: fill
 padding-horizontal: 50
 padding-horizontal if $is-mobile: 20
 padding-bottom: 200
+background-color: $fpm.color.main.background.base
+
 
 -- pd.package: Dark Mode Switcher(DMS)
 name: fifthtry.github.io/dark-mode-switcher
@@ -349,7 +351,7 @@ src: $light-mode-default
 
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 width: fill
 color: $menu-link
 /color if $MOUSE-IN: $menu-link-active
@@ -365,7 +367,7 @@ width: fill
 src: $light-mode-active
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 width: fill
 color: $menu-link-active
 padding-left: 10
@@ -400,7 +402,7 @@ width: fill
 src: $dark-mode-default
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium
+role: $fpm.type.copy-relaxed
 width: fill
 color: $menu-link
 /color if $MOUSE-IN: $menu-link-active
@@ -417,7 +419,7 @@ width: fill
 src: $dark-mode-default
 
 --- ftd.text: $text
-role: $fpm.type.body-medium 
+role: $fpm.type.copy-relaxed 
 width: fill
 color: $menu-link-active
 padding-left: 10
@@ -454,7 +456,7 @@ width: fill
 src: $system-mode-default
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium 
+role: $fpm.type.copy-relaxed 
 width: fill
 color: $menu-link
 /color if $MOUSE-IN: $menu-link-active
@@ -470,7 +472,7 @@ width: fill
 src: $system-mode-active
 
 --- ftd.text: $text 
-role: $fpm.type.body-medium 
+role: $fpm.type.copy-relaxed 
 width: fill
 color: $menu-link-active
 padding-left: 10
