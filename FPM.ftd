@@ -4,4 +4,4 @@
 zip: github.com/fifthtry/dark-mode-switcher/archive/refs/heads/main.zip
 
 -- fpm.dependency: fifthtry.github.io/package-doc
--- fpm.dependency: fifthtry.github.io/roboto
+-- fpm.dependency: fifthtry.github.io/inter
