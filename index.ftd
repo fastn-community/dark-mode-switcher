@@ -1,5 +1,6 @@
 -- import: fpm
 -- import: fifthtry.github.io/package-doc/doc as pd
+-- import: fifthtry.github.io/package-doc/code-block as cb
 -- import: fifthtry.github.io/dark-mode-switcher/assets
 
 -- boolean is-mobile: false
@@ -27,6 +28,21 @@ This component can be used to switch dark, light and system(MacOs, iOs) theme/mo
 name: fifthtry.github.io/dark-mode-switcher.switcher
 
 This is the main dark, light and system mode switcher.
+
+
+How to use?
+
+Add below lines into `FPM.ftd` file:
+
+
+
+-- cb.code:
+lang: ftd
+
+\-- fpm.dependency: fifthtry.github.io/dark-mode-switcher as dark
+
+\-- fpm.auto-import: dark
+
 
 
 -- pd.hidden-code: How to use
