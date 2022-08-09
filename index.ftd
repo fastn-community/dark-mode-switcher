@@ -105,7 +105,7 @@ $on-click-outside$: $open=false
 ftd.image-src polygon-up: $assets.files.static.icon-polygon-up.png
 ftd.image-src polygon-down: $assets.files.static.icon-polygon-down.png
 ftd.image-src dark-mode-default: $assets.files.static.dark-mode-default.png
-/ftd.image-src dark-mode-active: $assets.files.static.dark-mode-active.png
+ftd.image-src dark-mode-active: $assets.files.static.dark-mode-active.png
 ftd.image-src light-mode-default: $assets.files.static.light-mode-detault.png
 ftd.image-src light-mode-active: $assets.files.static.light-mode-active.png
 ftd.image-src system-mode-default: $assets.files.static.system-mode-default.png
@@ -133,8 +133,12 @@ if: not $ftd.follow-system-dark-mode
 
 
 --- ftd.image:
+if: not $ftd.dark-mode
 src: $light-mode-active
 
+--- ftd.image:
+if: $ftd.dark-mode
+src: $dark-mode-active
 
 --- container: ftd.main
 
@@ -172,7 +176,7 @@ border-radius: 6
 --- t-dark: Dark mode
 if: not $ftd.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
-/dark-mode-active: $dark-mode-active
+dark-mode-active: $dark-mode-active
 menu-link: $colors.text 
 menu-link-active: $colors.text
 $on-click$: message-host enable-dark-mode
@@ -183,7 +187,7 @@ is-active: $ftd.dark-mode
 --- t-dark: Dark mode
 if: $ftd.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
-/dark-mode-active: $dark-mode-active
+dark-mode-active: $dark-mode-active
 menu-link: $colors.text 
 menu-link-active: $colors.text
 $on-click$: message-host enable-dark-mode
@@ -268,7 +272,7 @@ border-radius: 6
 --- t-dark: Dark mode
 if: not $ftd.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
-/dark-mode-active: $dark-mode-active
+dark-mode-active: $dark-mode-active
 menu-link: $colors.text 
 menu-link-active: $colors.text
 $on-click$: message-host enable-dark-mode
@@ -279,7 +283,7 @@ is-active: $ftd.dark-mode
 --- t-dark: Dark mode
 if: $ftd.follow-system-dark-mode
 dark-mode-default: $dark-mode-default
-/dark-mode-active: $dark-mode-active
+dark-mode-active: $dark-mode-active
 menu-link: $colors.text 
 menu-link-active: $colors.text
 $on-click$: message-host enable-dark-mode
@@ -402,7 +406,7 @@ caption text:
 ftd.color menu-link: $fpm.color.main.text
 ftd.color menu-link-active: $fpm.color.main.text
 ftd.image-src dark-mode-default: $assets.files.static.dark-mode-default.png
-/ftd.image-src dark-mode-active: $assets.files.static.dark-mode-active.png
+ftd.image-src dark-mode-active: $assets.files.static.dark-mode-active.png
 boolean mouse-in: false
 $event-mouseenter$: $mouse-in = true
 $event-mouseleave$: $mouse-in = false
