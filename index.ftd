@@ -161,7 +161,6 @@ top: 15
 left: 0
 background-color: $colors.background.base
 width: 180
-border-radius: 4
 shadow-offset-x: 4
 shadow-offset-y: 4
 shadow-size: 0
@@ -258,7 +257,6 @@ right: -15
 top: 15
 background-color: $colors.background.base
 width: 180
-border-radius: 4
 shadow-offset-x: 4
 shadow-offset-y: 4
 shadow-size: 0
