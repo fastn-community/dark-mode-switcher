@@ -1,0 +1,60 @@
+-- import: fifthtry.github.io/dark-mode-switcher/assets
+
+-- dark-mode-switcher-float:
+
+
+-- component dark-mode-switcher-float:
+
+-- ftd.row:
+anchor: window
+right.px: 50
+right.px if { ftd.device == "mobile" }: 25
+bottom.px: 50
+bottom.px if { ftd.device == "mobile" }: 25
+padding.px: 10
+background.solid: $inherited.colors.background.base
+border-width.px: 1
+border-color: $inherited.colors.border
+border-radius.px: 4
+z-index: 99999999999999
+
+-- ftd.row:
+if: { ftd.follow-system-dark-mode }
+$on-click$: $ftd.enable-light-mode()
+
+-- ftd.image:
+src: $assets.files.static.system-mode-active.png
+height.fixed.px: 19
+align-self: center
+width.fixed.px: 19
+
+-- end: ftd.row
+
+-- ftd.row:
+if: { !ftd.dark-mode && !ftd.follow-system-dark-mode }
+$on-click$: $ftd.enable-dark-mode()
+
+-- ftd.image:
+src: $assets.files.static.light-mode-active.png
+height.fixed.px: 19
+align-self: center
+width.fixed.px: 19
+
+-- end: ftd.row
+
+
+-- ftd.row:
+if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
+$on-click$: $ftd.enable-system-mode()
+
+-- ftd.image:
+src: $assets.files.static.dark-mode-active-dark.png
+height.fixed.px: 19
+align-self: center
+width.fixed.px: 19
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: dark-mode-switcher-float
