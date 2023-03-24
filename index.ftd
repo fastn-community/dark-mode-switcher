@@ -9,7 +9,7 @@
 anchor: window
 right.px: 50
 right.px if { ftd.device == "mobile" }: 25
-bottom.px: 50
+bottom.px: 80
 bottom.px if { ftd.device == "mobile" }: 25
 padding.px: 10
 background.solid: $inherited.colors.background.base
