@@ -1,6 +1,10 @@
 -- import: fifthtry.github.io/dark-mode-switcher/assets
 -- import: fastn-community.github.io/site-doc
 
+
+
+
+
 -- site-doc.doc-home: Dark Mode Switcher
 github-url: https://github.com/fifthtry/dark-mode-switcher.git
 color-scheme: fastn-community.github.io/winter-cs
@@ -16,8 +20,8 @@ site-title: Dark Mode Switcher
 -- end: site-doc.output
 
 -- site-doc.component-doc: `dark-mode-switcher-float`
-package-link: https://fifthtry.github.io/dark-mode-switcher/
-github-link: https://github.com/fifthtry/dark-mode-switcher.git
+package-link: https://fifthtry.github.io/dark-mode-switcher
+github-link: https://github.com/fifthtry/dark-mode-switcher
 package-name: fifthtry.github.io/dark-mode-switcher
 info: ` -- dark-mode-switcher` can be used to switch from light to dark mode
 
@@ -46,6 +50,14 @@ This component does not require passing attributes
 -- end: site-doc.component-doc
 
 -- end: site-doc.doc-home
+
+
+
+
+
+
+
+
 
 
 -- component dark-mode-switcher-float:
@@ -87,7 +99,6 @@ width.fixed.px: 19
 
 -- end: ftd.row
 
-
 -- ftd.row:
 if: { ftd.dark-mode && !ftd.follow-system-dark-mode }
 $on-click$: $ftd.enable-system-mode()
@@ -103,4 +114,3 @@ width.fixed.px: 19
 -- end: ftd.row
 
 -- end: dark-mode-switcher-float
-
