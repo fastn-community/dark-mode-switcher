@@ -1,0 +1,48 @@
+-- import: fastn
+-- import: fastn-community.github.io/site-doc/assets
+-- import: fastn/processors as pr
+-- import: fastn-community.github.io/site-doc as doc
+-- import: fifthtry.github.io/dark-mode-switcher as lp
+
+-- doc.doc-home: Component Page
+github-url: https://github.com/fifthtry/dark-mode-switcher.git
+color-scheme: fastn-community.github.io/winter-cs
+typography: fifthtry.github.io/opensans-typography
+current-package: fastn-community.github.io/dark-mode-switcher
+show-tabs: true
+
+-- doc.output:
+
+-- lp.dark-mode-switcher-float:
+
+-- end: doc.output
+
+-- doc.component-doc: `dark-mode-switcher-float`
+package-link: https://fifthtry.github.io/dark-mode-switcher/
+github-link: https://github.com/fifthtry/dark-mode-switcher.git
+package-name: fifthtry.github.io/dark-mode-switcher
+info: ` -- dark-mode-switcher` can be used to quickly switch from light to dark mode
+
+`dark-mode-switcher-float` is used for easily switching from light 
+to dark mode. To use `dark-mode-switcher-float` on your fastn package,
+add below into lines FASTN.ftd file:
+
+-- doc.code:
+lang: ftd
+
+\-- fastn.dependency: fastn-community.github.io/dark-mode-switcher
+
+-- doc.header: Invocation:
+
+-- doc.code:
+lang: ftd
+
+\-- dark-mode-switcher-float:
+
+-- doc.header: Properties:
+
+This component Invocation does not require passing attributes
+
+-- end: doc.component-doc
+
+-- end: doc.doc-home
