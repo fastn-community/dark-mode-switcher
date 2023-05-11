@@ -6,7 +6,7 @@
 
 
 -- site-doc.doc-home: Dark Mode Switcher
-github-url: https://github.com/fifthtry/dark-mode-switcher.git
+github-url: https://github.com/fifthtry/dark-mode-switcher
 color-scheme: fastn-community.github.io/winter-cs
 typography: fifthtry.github.io/opensans-typography
 current-package: fastn-community.github.io/dark-mode-switcher
