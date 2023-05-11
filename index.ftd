@@ -12,6 +12,7 @@ color-scheme: \$ftd.default-colors
 typography: \$ftd.default-types
 current-package: fifthtry.github.io/product-switcher
 show-tabs: false
+site-title: Dark Mode Switcher
 
 -- site-doc.header: What is a Dark Mode Switcher?
 
