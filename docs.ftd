@@ -16,6 +16,11 @@ site-title: Dark Mode Switcher
 
 -- site-doc.output:
 
+-- ftd.text: Click on dark mode switcher icon at botton right position of screen
+role: $inherited.types.copy-regular
+color: $inherited.colors.text
+
+
 -- dms.dark-mode-switcher-float:
 
 -- end: site-doc.output
