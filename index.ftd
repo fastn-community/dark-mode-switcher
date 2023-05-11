@@ -1,6 +1,6 @@
--- import: fifthtry.github.io/dark-mode-switcher/assets
+-- import: fastn-community.github.io/dark-mode-switcher/assets
 -- import: fastn-community.github.io/site-doc
--- import: fifthtry.github.io/code-block as cb
+-- import: fastn-community.github.io/code-block as cb
 
 
 
@@ -43,7 +43,7 @@ To learn more about dark-mode-switcher [click here](/docs/).
 -- cb.code:
 lang: ftd
 
-\-- fastn.dependency: fifthtry.github.io/dark-mode-switcher
+\-- fastn.dependency: fastn-community.github.io/dark-mode-switcher
 
 -- end: site-doc.doc-home
 
