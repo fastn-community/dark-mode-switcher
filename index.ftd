@@ -7,7 +7,7 @@
 
 
 -- site-doc.doc-home: Dark Mode Switcher
-github-url: https://fifthtry.github.io/product-switcher
+github-url: https://github.com/fifthtry/dark-mode-switcher
 color-scheme: \$ftd.default-colors
 typography: \$ftd.default-types
 current-package: fifthtry.github.io/product-switcher
